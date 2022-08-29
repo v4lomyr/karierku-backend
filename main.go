@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"os"
 
 	handlers "karierku.com/backend/handlers"
 )
@@ -15,5 +16,10 @@ func main() {
 	http.HandleFunc("/lowongan/reccomendation", handlers.HandlerRekomendasiLowongan)
 
 	fmt.Println("Server Online")
-	http.ListenAndServe(":9000", nil)
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "9000"
+	}
+
+	http.ListenAndServe(":" + port, nil)
 }
