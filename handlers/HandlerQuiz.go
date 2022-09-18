@@ -23,7 +23,7 @@ type option struct {
 
 func HandlerQuiz(w http.ResponseWriter, r *http.Request){
 	w.Header().Set("Access-Control-Allow-Origin", "*")
-    w.Header().Set("Access-Control-Allow-Methods", "GET, POST")
+    w.Header().Set("Access-Control-Allow-Methods", "*")
     w.Header().Set("Access-Control-Allow-Headers", "*")
 
 	if r.Method != "POST" {
