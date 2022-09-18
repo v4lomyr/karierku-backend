@@ -23,6 +23,10 @@ type detail struct {
 }
 
 func HandlerLowongan(w http.ResponseWriter, r *http.Request){
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+    w.Header().Set("Access-Control-Allow-Methods", "GET")
+    w.Header().Set("Access-Control-Allow-Headers", "*")
+
 	if r.Method != "GET" {
 		http.Error(w, "", http.StatusBadRequest)
 		return
@@ -85,6 +89,15 @@ func HandlerLowongan(w http.ResponseWriter, r *http.Request){
 }
 
 func HandlerRekomendasiLowongan(w http.ResponseWriter, r *http.Request){
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+    w.Header().Set("Access-Control-Allow-Methods", "GET")
+    w.Header().Set("Access-Control-Allow-Headers", "*")
+	
+	if r.Method != "GET" {
+		http.Error(w, "", http.StatusBadRequest)
+		return
+	}
+
 	db, err := model.ConnectDB()
 	if err != nil {
 		fmt.Println(err.Error())
@@ -105,8 +118,8 @@ func HandlerRekomendasiLowongan(w http.ResponseWriter, r *http.Request){
 	rows, err := db.Query(`
 		select lowongan.id, lowongan.image_url, lowongan.company, lowongan.position, lowongan.description, lowongan.requirement, lowongan.link
 		from lowongan
-		join majors on lowongan.suitable = majors.id
-		where majors.major = $1
+		join roles on lowongan.suitable = roles.id
+		where roles.role = $1
 	`, payload.RecommendationRole)
 
 	if err != nil {
