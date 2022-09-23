@@ -44,6 +44,9 @@ func HandlerInputLowongan(w http.ResponseWriter, r *http.Request) {
 	INSERT INTO lowongan (image_url, company, position, description, requirement, link)
 	VALUES ($1, $2, $3, $4, $5, $6)
 	`
+
+	w.Header().Set("Content-Type", "application/json")
+	
 	_, err = db.Exec(statement, payload.ImageUrl, payload.Company, payload.Position, payload.Description, payload.Requirement, payload.Link)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
