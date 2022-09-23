@@ -14,6 +14,7 @@ func main() {
 	// http.HandleFunc("/result", handlers.HandlerResult)
 	http.HandleFunc("/lowongan", handlers.HandlerLowongan)
 	http.HandleFunc("/lowongan/reccomendation", handlers.HandlerRekomendasiLowongan)
+	http.HandleFunc("/input/lowongan", handlers.HandlerInputLowongan)
 
 	fmt.Println("Server Online")
 	port := os.Getenv("PORT")
