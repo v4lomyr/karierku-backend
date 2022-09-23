@@ -29,7 +29,8 @@ func HandlerInputLowongan(w http.ResponseWriter, r *http.Request) {
 	payload := struct {
 		ImageUrl string `json:"image_url"`
 		Company string `json:"company"`
-		Position string `json:"description"`
+		Position string `json:"position"`
+		Description string `json:"description"`
 		Requirement string `json:"requirement"`
 		Link string `json:"link"`
 	}{}
@@ -43,7 +44,7 @@ func HandlerInputLowongan(w http.ResponseWriter, r *http.Request) {
 	INSERT INTO lowongan (image_url, company, position, description, requirement, link)
 	VALUES ($1, $2, $3, $4, $5, $6)
 	`
-	_, err = db.Exec(statement, payload.ImageUrl, payload.Company, payload.Position, payload.Requirement, payload.Link)
+	_, err = db.Exec(statement, payload.ImageUrl, payload.Company, payload.Position, payload.Description, payload.Requirement, payload.Link)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
