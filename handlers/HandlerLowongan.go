@@ -24,7 +24,7 @@ type detail struct {
 
 func HandlerLowongan(w http.ResponseWriter, r *http.Request){
 	w.Header().Set("Access-Control-Allow-Origin", "*")
-    w.Header().Set("Access-Control-Allow-Methods", "GET")
+    w.Header().Set("Access-Control-Allow-Methods", "*")
     w.Header().Set("Access-Control-Allow-Headers", "*")
 
 	if r.Method != "GET" {
@@ -90,7 +90,7 @@ func HandlerLowongan(w http.ResponseWriter, r *http.Request){
 
 func HandlerRekomendasiLowongan(w http.ResponseWriter, r *http.Request){
 	w.Header().Set("Access-Control-Allow-Origin", "*")
-    w.Header().Set("Access-Control-Allow-Methods", "GET, POST")
+    w.Header().Set("Access-Control-Allow-Methods", "*")
     w.Header().Set("Access-Control-Allow-Headers", "*")
 	
 	db, err := model.ConnectDB()

@@ -9,6 +9,10 @@ import (
 )
 
 func HandlerLanding(w http.ResponseWriter, r *http.Request){
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+    w.Header().Set("Access-Control-Allow-Methods", "*")
+    w.Header().Set("Access-Control-Allow-Headers", "*")
+
 	if r.Method != "GET" {
 		http.Error(w, "", http.StatusBadRequest)
 		return

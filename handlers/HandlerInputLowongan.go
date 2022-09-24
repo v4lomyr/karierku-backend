@@ -10,7 +10,7 @@ import (
 
 func HandlerInputLowongan(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
-    w.Header().Set("Access-Control-Allow-Methods", "POST")
+    w.Header().Set("Access-Control-Allow-Methods", "*")
     w.Header().Set("Access-Control-Allow-Headers", "*")
 
 	if r.Method != "POST" {
@@ -46,7 +46,7 @@ func HandlerInputLowongan(w http.ResponseWriter, r *http.Request) {
 	`
 
 	w.Header().Set("Content-Type", "application/json")
-	
+
 	_, err = db.Exec(statement, payload.ImageUrl, payload.Company, payload.Position, payload.Description, payload.Requirement, payload.Link)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
