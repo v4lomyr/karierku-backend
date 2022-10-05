@@ -6,7 +6,7 @@ import (
 )
 
 type result struct {
-	RecommendationMajor string
+	RecommendationRole string
 	RecomendationHardSkills []string
 }
 
@@ -105,25 +105,25 @@ func generateResult(answerId int) (result) {
 	switch answerId{
 	case 3:
 		res := result{
-			RecommendationMajor: "Front-End Engineer",
+			RecommendationRole: "Front-End Engineer",
 			RecomendationHardSkills: []string {"HTML", "CSS", "JavaScript"},
 		}
 		return res
 	case 4:
 		res := result{
-			RecommendationMajor: "Back-End Engineer",
+			RecommendationRole: "Back-End Engineer",
 			RecomendationHardSkills: []string {"DBMS", "API Engineering"},
 		}
 		return res
 	case 5:
 		res := result{
-			RecommendationMajor: "UI/UX Designer",
+			RecommendationRole: "UI/UX Designer",
 			RecomendationHardSkills: []string {"UI Design", "UX Design"},
 		}
 		return res
 	case 6:
 		res := result{
-			RecommendationMajor: "Data Analyst",
+			RecommendationRole: "Data Analyst",
 			RecomendationHardSkills: []string {"Data Visualization", "Data Analysis"},
 		}
 		return res
