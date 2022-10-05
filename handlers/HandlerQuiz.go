@@ -65,10 +65,10 @@ func generateQuestion(answerId int) (question){
 	switch answerId {
 	case 0:
 		question := question{
-			Question: "dummy question 1",
+			Question: "Apakah kamu suka melakukan coding ?",
 			Options: []option{
-				{Id: 1, Text: "dummy option 1"},
-				{Id: 2, Text: "dummy option 2"},
+				{Id: 1, Text: "Ya"},
+				{Id: 2, Text: "Tidak"},
 			},
 			IsLast: false,
 		}
@@ -76,32 +76,21 @@ func generateQuestion(answerId int) (question){
 	
 	case 1:
 		question := question{
-			Question: "dummy question 2",
+			Question: "Yang mana yang lebih kamu sukai ?",
 			Options: []option{
-				{Id: 3, Text: "dummy option 1"},
-				{Id: 4, Text: "dummy option 2"},
+				{Id: 3, Text: "Visual"},
+				{Id: 4, Text: "Data"},
 			},
-			IsLast: false,
+			IsLast: true,
 		}
 		return question
 
 	case 2:
 		question := question{
-			Question: "dummy question 2",
+			Question: "Yang mana yang lebih kamu sukai ?",
 			Options: []option{
-				{Id: 3, Text: "dummy option 1"},
-				{Id: 4, Text: "dummy option 2"},
-			},
-			IsLast: false,
-		}
-		return question
-
-	case 3, 4:
-		question := question{
-			Question: "dummy question 3",
-			Options: []option{
-				{Id: 5, Text: "dummy option 1"},
-				{Id: 6, Text: "dummy option 2"},
+				{Id: 5, Text: "Visual"},
+				{Id: 6, Text: "Data"},
 			},
 			IsLast: true,
 		}
@@ -114,16 +103,28 @@ func generateQuestion(answerId int) (question){
 
 func generateResult(answerId int) (result) {
 	switch answerId{
-	case 5:
+	case 3:
 		res := result{
 			RecommendationMajor: "Front-End Engineer",
-			RecomendationHardSkills: []string {"Design", "HTML", "CSS", "JavaScript"},
+			RecomendationHardSkills: []string {"HTML", "CSS", "JavaScript"},
+		}
+		return res
+	case 4:
+		res := result{
+			RecommendationMajor: "Back-End Engineer",
+			RecomendationHardSkills: []string {"DBMS", "API Engineering"},
+		}
+		return res
+	case 5:
+		res := result{
+			RecommendationMajor: "UI/UX Designer",
+			RecomendationHardSkills: []string {"UI Design", "UX Design"},
 		}
 		return res
 	case 6:
 		res := result{
-			RecommendationMajor: "Back-End Engineer",
-			RecomendationHardSkills: []string {"DBMS", "API Engineering"},
+			RecommendationMajor: "Data Analyst",
+			RecomendationHardSkills: []string {"Data Visualization", "Data Analysis"},
 		}
 		return res
 	default:
